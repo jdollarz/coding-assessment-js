@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Thumbnail from '../thumbnail/Thumbnail';
 import ImageDisplay from '../imageDisplay/ImageDisplay';
+import {fetchThumbnailRequest} from './InfiniteScrollActions';
 
-class InfiniteScroll extends Component {
+export class InfiniteScroll extends Component {
     constructor(props) {
         super();
         this.state = {
             currentBigImage: ''
         };
     }
+
+    componentDidMount() {
+        const { fetchThumbnails } = this.props;
+        if (typeof fetchThumbnails === 'undefined' ){
+            return null;
+        }
+        fetchThumbnails();
+
+        window.onscroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+                fetchThumbnails();
+            }
+        };
+    }
+
     handleClick = imageUrl => ()=> {
-        console.log(' handleClick', imageUrl);
         this.setState({
             currentBigImage: imageUrl
         })
@@ -36,7 +52,6 @@ class InfiniteScroll extends Component {
 
     render(){
         const { currentBigImage } = this.state;
-        console.log(' currentBigImage', currentBigImage);
         const imageDisplay = (currentBigImage) ? <ImageDisplay imageUrl={currentBigImage} /> : null;
         return (
             <div className="infinite-scroll">
@@ -51,5 +66,19 @@ InfiniteScroll.propTypes = {
     thumbnailData: PropTypes.array,
 };
 
+const mapStateToProps = (state) => {
+    const { payload } = state.infiniteScroll;
+    return {
+        thumbnailData: payload
+    };
+};
 
-export default InfiniteScroll;
+const mapDispatchToProps  = dispatch => ({
+    fetchThumbnails: () => dispatch(fetchThumbnailRequest())
+});
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(InfiniteScroll);

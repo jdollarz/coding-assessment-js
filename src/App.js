@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
+import { InfiniteScroll } from './components/infiniteScroll/InfiniteScroll'
 
 export const App = ({message, href, fetch}) => {
   fetch && fetch();
@@ -18,7 +19,7 @@ export const App = ({message, href, fetch}) => {
         {message}
       </a>
     </header>
-
+    <InfiniteScroll />
   </div>;
 }
 

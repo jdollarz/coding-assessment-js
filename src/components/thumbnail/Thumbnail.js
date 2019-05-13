@@ -16,7 +16,7 @@ const Thumbnail = ({data, handleClick}) => {
               {title}
           </div>
           <img
-              alt="thumbnail image"
+              alt={title}
               src={thumbnailUrl}
               className="thumbnail__image"
               onClick={handleClick(imageUrl)}

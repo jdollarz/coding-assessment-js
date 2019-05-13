@@ -7,7 +7,7 @@ const ImageDisplay = ({ imageUrl }) => {
         <div className="image-display">
             <img
                 src={imageUrl}
-                alt="large image"
+                alt=""
                 className="image-display__image"
             />
         </div>

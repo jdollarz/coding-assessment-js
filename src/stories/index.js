@@ -3,7 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import InfiniteScroll from '../components/infiniteScroll/InfiniteScroll'
+import InfiniteScroll from '../components/infiniteScroll/InfiniteScroll';
+import { Provider } from './Provider';
 
 import { Button, Welcome } from '@storybook/react/demo';
 
@@ -32,5 +33,6 @@ const thumbnailData = [
     }
 ];
 storiesOf('InfiniteScroll', module)
+    .addDecorator(story => <Provider story={story()} />)
     .add('with pagination', () => <InfiniteScroll thumbnailData={thumbnailData}/>);
 

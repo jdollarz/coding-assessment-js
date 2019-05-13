@@ -6,7 +6,6 @@ import {
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
-
         case FETCH_THUMBNAILS_REQUEST:
             return {
                 ...state,

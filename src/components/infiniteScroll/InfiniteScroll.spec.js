@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import InfiniteScroll from './InfiniteScroll';
+import { InfiniteScroll } from './InfiniteScroll';
 import Thumbnail from '../thumbnail/Thumbnail';
 import ImageDisplay from '../imageDisplay/ImageDisplay';
 
