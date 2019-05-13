@@ -19,5 +19,16 @@ storiesOf('Button', module)
     </Button>
   ));
 
+const thumbnailData = [
+    {
+        title: 'some title',
+        thumbnailUrl: 'https://via.placeholder.com/150/771796'
+    },
+    {
+        title: 'some title 2',
+        thumbnailUrl: 'https://via.placeholder.com/150/92c952'
+    }
+];
 storiesOf('InfiniteScroll', module)
-    .add('with pagination', () => <InfiniteScroll/>);
+    .add('with pagination', () => <InfiniteScroll thumbnailData={thumbnailData}/>);
+
