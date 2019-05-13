@@ -18,6 +18,7 @@ export const App = ({message, href, fetch}) => {
         {message}
       </a>
     </header>
+
   </div>;
 }
 

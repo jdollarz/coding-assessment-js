@@ -1,14 +1,8 @@
-const initialState = {
-  message: 'Loading...',
-  href: null
-};
+import { combineReducers } from 'redux';
+import infiniteScroll from '../../components/infiniteScroll/InfiniteScrollReducer';
 
-export default function(state = initialState, action) {
-  return action.type === 'setLink'
-    ? {
-      ...state,
-      message: action.link.message,
-      href: action.link.href
-    }
-    : state;
-}
+const rootReducer = combineReducers({
+    infiniteScroll
+});
+
+export default rootReducer;
