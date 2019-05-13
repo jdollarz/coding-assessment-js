@@ -8,7 +8,7 @@ const Thumbnail = ({data, handleClick}) => {
         return null;
     }
 
-    const { title, thumbnailUrl} = data;
+    const { title, thumbnailUrl, imageUrl} = data;
 
     return (
       <div className="thumbnail">
@@ -18,7 +18,7 @@ const Thumbnail = ({data, handleClick}) => {
           <img
               src={thumbnailUrl}
               className="thumbnail__image"
-              onClick={handleClick}
+              onClick={handleClick(imageUrl)}
           />
       </div>
     );

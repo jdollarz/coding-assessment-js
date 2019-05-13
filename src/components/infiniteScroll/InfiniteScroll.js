@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Thumbnail from '../thumbnail/Thumbnail';
 
 class InfiniteScroll extends Component {
-    handleClick = () => {
-        console.log('got a click');
+    handleClick = imageUrl => ()=> {
+        console.log('got a click', imageUrl);
     };
 
     renderThumbnails(){

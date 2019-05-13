@@ -17,7 +17,7 @@ describe('<Thumbnail />', () => {
     });
 
     test('it renders element when data props are provided ', () => {
-        wrapper = shallow(<Thumbnail data={data} />);
+        wrapper = shallow(<Thumbnail data={data} handleClick={() => {}} />);
         expect(wrapper.find('.thumbnail__title').text()).toEqual(data.title);
         expect(wrapper.find('.thumbnail__image').prop('src')).toEqual(data.thumbnailUrl);
     });
@@ -27,11 +27,13 @@ describe('<Thumbnail />', () => {
             data,
             handleClick: jest.fn(),
         };
+        const expectedImage = 'some-image.url';
         wrapper = shallow(<Thumbnail {...props} />);
 
         const image = wrapper.find('img');
-        console.log(image.debug())
         image.simulate('click');
+
         expect(props.handleClick.mock.calls.length).toEqual(1);
+        expect(props.handleClick.mock.calls[0][0]).toEqual(expectedImage);
     });
 });
