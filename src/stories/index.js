@@ -23,12 +23,12 @@ const thumbnailData = [
     {
         title: 'some title',
         thumbnailUrl: 'https://via.placeholder.com/150/771796',
-        imageUrl: 'some-image.url'
+        imageUrl: 'http://placekitten.com/500/500'
     },
     {
         title: 'some title 2',
         thumbnailUrl: 'https://via.placeholder.com/150/92c952',
-        imageUrl: 'some-image.url2'
+        imageUrl: 'http://placekitten.com/500/500'
     }
 ];
 storiesOf('InfiniteScroll', module)

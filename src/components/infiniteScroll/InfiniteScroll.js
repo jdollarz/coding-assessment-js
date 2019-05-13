@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Thumbnail from '../thumbnail/Thumbnail';
+import ImageDisplay from '../imageDisplay/ImageDisplay';
 
 class InfiniteScroll extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            currentBigImage: ''
+        };
+    }
     handleClick = imageUrl => ()=> {
-        console.log('got a click', imageUrl);
+        console.log(' handleClick', imageUrl);
+        this.setState({
+            currentBigImage: imageUrl
+        })
     };
 
     renderThumbnails(){
@@ -25,9 +35,13 @@ class InfiniteScroll extends Component {
     }
 
     render(){
+        const { currentBigImage } = this.state;
+        console.log(' currentBigImage', currentBigImage);
+        const imageDisplay = (currentBigImage) ? <ImageDisplay imageUrl={currentBigImage} /> : null;
         return (
             <div className="infinite-scroll">
                 {this.renderThumbnails()}
+                {imageDisplay}
             </div>
         );
     }
