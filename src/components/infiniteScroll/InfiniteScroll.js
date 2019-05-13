@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import Thumbnail from '../thumbnail/Thumbnail';
 
 class InfiniteScroll extends Component {
+    handleClick = () => {
+        console.log('got a click');
+    };
+
     renderThumbnails(){
         const { thumbnailData } = this.props;
         if (!thumbnailData) {
@@ -10,7 +14,13 @@ class InfiniteScroll extends Component {
         }
 
         return thumbnailData.map((thumb, index) => {
-            return <Thumbnail key={index} data={thumb} />;
+            return (
+                <Thumbnail
+                    key={index}
+                    data={thumb}
+                    handleClick={this.handleClick}
+                />
+            );
         });
     }
 

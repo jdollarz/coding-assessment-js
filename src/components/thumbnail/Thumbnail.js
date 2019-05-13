@@ -1,20 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Thumbnail.css';
 
-const Thumbnail = data => {
-    if (!data.data) {
+const Thumbnail = ({data, handleClick}) => {
+    if (!data) {
         return null;
     }
-    const { title, thumbnailUrl} = data.data;
+
+    const { title, thumbnailUrl} = data;
 
     return (
       <div className="thumbnail">
           <div className="thumbnail__title">
               {title}
           </div>
-          <img src={thumbnailUrl} className="thumbnail__image" />
+          <img
+              src={thumbnailUrl}
+              className="thumbnail__image"
+              onClick={handleClick}
+          />
       </div>
     );
 };
 
+Thumbnail.propTypes = {
+    data: PropTypes.object,
+    handleClick: PropTypes.func
+};
 export default Thumbnail;

@@ -22,11 +22,13 @@ storiesOf('Button', module)
 const thumbnailData = [
     {
         title: 'some title',
-        thumbnailUrl: 'https://via.placeholder.com/150/771796'
+        thumbnailUrl: 'https://via.placeholder.com/150/771796',
+        imageUrl: 'some-image.url'
     },
     {
         title: 'some title 2',
-        thumbnailUrl: 'https://via.placeholder.com/150/92c952'
+        thumbnailUrl: 'https://via.placeholder.com/150/92c952',
+        imageUrl: 'some-image.url2'
     }
 ];
 storiesOf('InfiniteScroll', module)
